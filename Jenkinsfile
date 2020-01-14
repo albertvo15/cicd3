@@ -1,5 +1,10 @@
 pipeline {
     agent { docker { image 'golang' } }
+    environment {
+      registry = "albertvo/test"
+      registryCredential = 'dockerhub'
+      XDG_CACHE_HOME ="/tmp/.cache"
+    }
     stages {
         stage('Checkout') {
             steps {
